@@ -15,4 +15,4 @@ if %errorlevel% neq 0 (
 )
 
 :: 调用 PyInstaller
-pyinstaller main.py
+pyinstaller -i aitool.ico -w --clean main.py
