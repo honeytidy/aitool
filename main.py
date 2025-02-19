@@ -116,7 +116,7 @@ class EnhancedMultiLineDialog:
             with redirect_stdout(output_buffer):
                 exec(code, globals())
             captured_output = output_buffer.getvalue()
-            self.show_output("执行结果", captured_output)
+            self.show_output("执行成功！结果如下：", captured_output)
         except Exception as e:
             print("错误：", e)
             self.show_output("执行失败", f"{e}\n{traceback.format_exc()}")
