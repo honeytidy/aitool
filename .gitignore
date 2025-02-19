@@ -1,0 +1,5 @@
+build
+dist
+.ipynb_checkpoints
+.virtual_documents
+add_context_menu_py.bat
