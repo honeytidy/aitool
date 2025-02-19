@@ -4,7 +4,7 @@ chcp 65001
 :: 删除旧的 build 和 dist 文件夹（不询问直接删除）
 if exist build rd /s /q build
 if exist dist rd /s /q dist
-rem if exist your_script.spec del /q main.spec
+rem if exist main.spec del /q main.spec
 
 :: 检查是否具有管理员权限
 net session >nul 2>&1
@@ -15,4 +15,4 @@ if %errorlevel% neq 0 (
 )
 
 :: 调用 PyInstaller
-pyinstaller main.spec
+pyinstaller main.py
