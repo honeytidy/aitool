@@ -1,5 +1,4 @@
 @echo off
-chcp 65001
 
 :: 检查是否具有管理员权限
 net session >nul 2>&1

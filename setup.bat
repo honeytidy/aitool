@@ -1,24 +1,23 @@
-@echo off
-chcp 65001
+ï»¿@echo off
 
-:: ¼ì²éÊÇ·ñ¾ßÓĞ¹ÜÀíÔ±È¨ÏŞ
+:: æ£€æŸ¥æ˜¯å¦å…·æœ‰ç®¡ç†å‘˜æƒé™
 net session >nul 2>&1
 if %errorlevel% neq 0 (
-    echo µ±Ç°½Å±¾Ã»ÓĞ¹ÜÀíÔ±È¨ÏŞ£¬ÕıÔÚ³¢ÊÔÒÔ¹ÜÀíÔ±È¨ÏŞÖØĞÂÆô¶¯...
+    echo å½“å‰è„šæœ¬æ²¡æœ‰ç®¡ç†å‘˜æƒé™ï¼Œæ­£åœ¨å°è¯•ä»¥ç®¡ç†å‘˜æƒé™é‡æ–°å¯åŠ¨...
     powershell -Command "Start-Process -FilePath '%~f0' -Verb RunAs"
     exit /b
 )
 
 set SCRIPT_PATH="%~dp0dist\main\main.exe"
 
-reg add "HKEY_CLASSES_ROOT\*\shell\MyPythonAction" /ve /d "AI¹¤¾ßÏä" /f
+reg add "HKEY_CLASSES_ROOT\*\shell\MyPythonAction" /ve /d "AIå·¥å…·ç®±" /f
 reg add "HKEY_CLASSES_ROOT\*\shell\MyPythonAction" /v "Icon" /d "%~dp0aitool.ico" /f
 reg add "HKEY_CLASSES_ROOT\*\shell\MyPythonAction\command" /ve /d "%SCRIPT_PATH% \"%%1\"" /f
 
-:: ÎªËùÓĞÎÄ¼ş¼ĞÌí¼ÓÓÒ¼ü²Ëµ¥
-reg add "HKEY_CLASSES_ROOT\Directory\shell\MyPythonAction" /ve /d "AI¹¤¾ßÏä" /f
+:: ä¸ºæ‰€æœ‰æ–‡ä»¶å¤¹æ·»åŠ å³é”®èœå•
+reg add "HKEY_CLASSES_ROOT\Directory\shell\MyPythonAction" /ve /d "AIå·¥å…·ç®±" /f
 reg add "HKEY_CLASSES_ROOT\Directory\shell\MyPythonAction" /v "Icon" /d "%~dp0aitool.ico" /f
 reg add "HKEY_CLASSES_ROOT\Directory\shell\MyPythonAction\command" /ve /d "%SCRIPT_PATH% \"%%1\"" /f
 
-echo ÓÒ¼ü²Ëµ¥Ìí¼Ó³É¹¦£¡
+echo å³é”®èœå•æ·»åŠ æˆåŠŸï¼
 pause
