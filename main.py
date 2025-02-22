@@ -123,7 +123,6 @@ class EnhancedMultiLineDialog:
         self.ok_button.config(state=tk.NORMAL, text="运行")
         self.progress.stop()
 
-
     def cancel(self):
         self.result = None
         self.root.quit()
@@ -136,6 +135,7 @@ class EnhancedMultiLineDialog:
     def show_output(self, title, msg):
         self.output_text.insert(tk.END, f"{title.center(50, '=')}\n")
         self.output_text.insert(tk.END, f"{msg}\n")
+        # self.output_text.see(tk.END)
 
 
     def send2ai(self, prompt):
