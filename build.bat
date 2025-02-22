@@ -1,4 +1,4 @@
-@echo off
+﻿@echo off
 chcp 65001
 
 :: 删除旧的 build 和 dist 文件夹（不询问直接删除）
