@@ -149,7 +149,7 @@ class EnhancedMultiLineDialog:
 
 # 使用示例
 if __name__ == "__main__":
-    default_text = f"解压这个文件并提取里面的pdf文件到一个目录"
+    default_text = f"解压这个文件并提取里面的jpg文件到一个目录"
     dialog = EnhancedMultiLineDialog(
         title="AI工具箱",
         default_text=default_text,
