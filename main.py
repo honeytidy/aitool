@@ -15,9 +15,10 @@ class EnhancedMultiLineDialog:
         self.root.title(title)
         # icon = tk.PhotoImage(file="logo.png")
         # self.root.iconphoto(True, icon)
-        style = ttk.Style(self.root)
-        style.theme_use('winnative')
-        
+        # style = ttk.Style(self.root)
+        # style.theme_use('winnative')
+
+
         # 设置窗口大小和位置
         window_width = 500
         window_height = 400
@@ -91,7 +92,7 @@ class EnhancedMultiLineDialog:
             height=20,
             font=('Arial', 10)
         )
-        self.output_text.pack(padx=10, pady=1, expand=True, fill='x')
+        self.output_text.pack(padx=10, pady=1, expand=True, fill='both')
 
         # 绑定快捷键
         self.root.bind('<Control-Return>', lambda e: self.start_task())
@@ -129,14 +130,11 @@ class EnhancedMultiLineDialog:
 
     def run(self):
         self.root.mainloop()
-        # self.root.destroy()
-        # return self.result
 
     def show_output(self, title, msg):
         self.output_text.insert(tk.END, f"{title.center(50, '=')}\n")
         self.output_text.insert(tk.END, f"{msg}\n")
-        # self.output_text.see(tk.END)
-
+        self.output_text.see(tk.END)
 
     def send2ai(self, prompt):
         url = "https://aitool.center/api"
