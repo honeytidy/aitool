@@ -13,11 +13,8 @@ class EnhancedMultiLineDialog:
     def __init__(self, title="多行文本输入", default_text="", prompt="请输入内容："):
         self.root = tk.Tk()
         self.root.title(title)
-        # icon = tk.PhotoImage(file="logo.png")
-        # self.root.iconphoto(True, icon)
         # style = ttk.Style(self.root)
         # style.theme_use('winnative')
-
 
         # 设置窗口大小和位置
         window_width = 500
@@ -75,14 +72,21 @@ class EnhancedMultiLineDialog:
         self.ok_button.pack(side=tk.LEFT, padx=5)
 
         status_frame = ttk.Frame(self.root)
-        status_frame.pack(padx=10, fill='x', expand=True)
+        status_frame.pack(padx=5, fill='x', expand=True)
         # 进度条
         self.progress = ttk.Progressbar(status_frame, mode="indeterminate")
-        self.progress.pack(padx=1, expand=True, fill='x', side=tk.LEFT)
+        self.progress.pack(padx=5, expand=True, fill='x', side=tk.LEFT)
+        # 模型选择
+        self.model_var = tk.StringVar(value="fast")
+        self.fast_model = ttk.Radiobutton(status_frame, text="快模型", variable=self.model_var, value="fast")
+        self.slow_model = ttk.Radiobutton(status_frame, text="慢模型", variable=self.model_var, value="slow")
+        self.fast_model.pack(side=tk.LEFT, padx=5)
+        self.slow_model.pack(side=tk.LEFT, padx=5)
+
         # 复选框（默认选中）
         self.show_middle_result = tk.BooleanVar(value=False)
         self.check_box = ttk.Checkbutton(status_frame, text="输出中间结果", variable=self.show_middle_result)
-        self.check_box.pack(padx=5, pady=5, side=tk.LEFT, expand=False, fill='x')
+        self.check_box.pack(padx=5, pady=5, side=tk.LEFT, expand=True, fill='x')
 
         # 创建多行文本框
         self.output_text = scrolledtext.ScrolledText(
@@ -138,9 +142,8 @@ class EnhancedMultiLineDialog:
 
     def send2ai(self, prompt):
         url = "https://aitool.center/api"
-        payload = {"prompt": prompt}
+        payload = {"prompt": prompt, "model": self.model_var.get()}
         response = requests.post(url, json=payload, timeout=None)
-        # self.show_output("\n"+response.text+"\n")
         code = response.json()['result']
         return code
 
