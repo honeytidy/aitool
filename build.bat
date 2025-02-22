@@ -1,18 +1,18 @@
-ï»¿@echo off
+@echo off
 chcp 65001
 
-:: åˆ é™¤æ—§çš„ build å’Œ dist æ–‡ä»¶å¤¹ï¼ˆä¸è¯¢é—®ç›´æ¥åˆ é™¤ï¼‰
+:: É¾³ı¾ÉµÄ build ºÍ dist ÎÄ¼ş¼Ğ£¨²»Ñ¯ÎÊÖ±½ÓÉ¾³ı£©
 if exist build rd /s /q build
 if exist dist rd /s /q dist
 rem if exist main.spec del /q main.spec
 
-:: æ£€æŸ¥æ˜¯å¦å…·æœ‰ç®¡ç†å‘˜æƒé™
+:: ¼ì²éÊÇ·ñ¾ßÓĞ¹ÜÀíÔ±È¨ÏŞ
 net session >nul 2>&1
 if %errorlevel% neq 0 (
-    echo å½“å‰è„šæœ¬æ²¡æœ‰ç®¡ç†å‘˜æƒé™ï¼Œæ­£åœ¨å°è¯•ä»¥ç®¡ç†å‘˜æƒé™é‡æ–°å¯åŠ¨...
+    echo µ±Ç°½Å±¾Ã»ÓĞ¹ÜÀíÔ±È¨ÏŞ£¬ÕıÔÚ³¢ÊÔÒÔ¹ÜÀíÔ±È¨ÏŞÖØĞÂÆô¶¯...
     powershell -Command "Start-Process -FilePath '%~f0' -Verb RunAs"
     rem exit /b
 )
 
-:: è°ƒç”¨ PyInstaller
+:: µ÷ÓÃ PyInstaller
 pyinstaller -i aitool.ico -w --clean main.py
