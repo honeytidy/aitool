@@ -7,12 +7,12 @@ if exist dist rd /s /q dist
 rem if exist main.spec del /q main.spec
 
 :: 检查是否具有管理员权限
-net session >nul 2>&1
-if %errorlevel% neq 0 (
-    echo 当前脚本没有管理员权限，正在尝试以管理员权限重新启动...
-    powershell -Command "Start-Process -FilePath '%~f0' -Verb RunAs"
-    rem exit /b
-)
+rem net session >nul 2>&1
+rem if %errorlevel% neq 0 (
+rem     echo 当前脚本没有管理员权限，正在尝试以管理员权限重新启动...
+rem     powershell -Command "Start-Process -FilePath '%~f0' -Verb RunAs"
+rem     rem exit /b
+rem )
 
 :: 调用 PyInstaller
 pyinstaller -i aitool.ico -w --clean main.py
