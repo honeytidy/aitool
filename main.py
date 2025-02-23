@@ -13,8 +13,8 @@ class EnhancedMultiLineDialog:
     def __init__(self, title="多行文本输入", default_text="", prompt="请输入内容："):
         self.root = tk.Tk()
         self.root.title(title)
-        # style = ttk.Style(self.root)
-        # style.theme_use('winnative')
+        style = ttk.Style(self.root)
+        style.theme_use('winnative')
 
         # 设置窗口大小和位置
         window_width = 500
