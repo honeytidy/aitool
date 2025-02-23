@@ -15,6 +15,6 @@ rem     rem exit /b
 rem )
 
 :: 调用 PyInstaller
-pyinstaller -i aitool.ico -w --clean main.py
+pyinstaller -i aitool.ico -w --add-data "setup.bat;." --clean main.py
 
 pause
