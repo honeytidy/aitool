@@ -4,7 +4,7 @@ chcp 65001
 :: 删除旧的 build 和 dist 文件夹（不询问直接删除）
 if exist build rd /s /q build
 if exist dist rd /s /q dist
-rem if exist main.spec del /q main.spec
+if exist main.spec del /q main.spec
 
 :: 检查是否具有管理员权限
 rem net session >nul 2>&1
@@ -15,6 +15,8 @@ rem     rem exit /b
 rem )
 
 :: 调用 PyInstaller
-pyinstaller -i aitool.ico -w --add-data "setup.bat;." --clean main.py
+pyinstaller -i aitool.ico -w --add-data "aitool.ico;." main.py
+xcopy /q "setup.bat" "dist/main"
+echo 打包完成！
 
 pause
