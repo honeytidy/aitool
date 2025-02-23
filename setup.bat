@@ -13,12 +13,13 @@ set SCRIPT_PATH="%~dp0dist\main\main.exe"
 
 reg add "HKEY_CLASSES_ROOT\*\shell\MyPythonAction" /ve /d "AI工具箱" /f
 reg add "HKEY_CLASSES_ROOT\*\shell\MyPythonAction" /v "Icon" /d "%~dp0aitool.ico" /f
-reg add "HKEY_CLASSES_ROOT\*\shell\MyPythonAction\command" /ve /d "%SCRIPT_PATH% \"%%1\"" /f
+reg add "HKEY_CLASSES_ROOT\*\shell\MyPythonAction\command" /ve /d "\"%SCRIPT_PATH%\" \"%%1\"" /f
+
 
 :: 为所有文件夹添加右键菜单
 reg add "HKEY_CLASSES_ROOT\Directory\shell\MyPythonAction" /ve /d "AI工具箱" /f
 reg add "HKEY_CLASSES_ROOT\Directory\shell\MyPythonAction" /v "Icon" /d "%~dp0aitool.ico" /f
-reg add "HKEY_CLASSES_ROOT\Directory\shell\MyPythonAction\command" /ve /d "%SCRIPT_PATH% \"%%1\"" /f
+reg add "HKEY_CLASSES_ROOT\Directory\shell\MyPythonAction\command" /ve /d "\"%SCRIPT_PATH%\" \"%%1\"" /f
 
 echo 右键菜单添加成功！
 pause
