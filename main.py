@@ -7,6 +7,7 @@ import io
 from contextlib import redirect_stdout
 import requests
 import traceback
+import PyPDF2
 
 
 class EnhancedMultiLineDialog:
