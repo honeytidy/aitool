@@ -137,9 +137,11 @@ class EnhancedMultiLineDialog:
         self.root.mainloop()
 
     def show_output(self, title, msg):
-        self.output_text.insert(tk.END, f"{title.center(50, '=')}\n")
+        self.output_text.tag_config("bold_red", font=("Arial", 10, "bold"), foreground="red")
+        self.output_text.insert(tk.END, f"{title.center(50, '=')}\n", "bold_red")
         self.output_text.insert(tk.END, f"{msg}\n")
         self.output_text.see(tk.END)
+        # self.output_text.config(state="disabled")
 
     def send2ai(self, prompt):
         url = "https://aitool.center/api"
