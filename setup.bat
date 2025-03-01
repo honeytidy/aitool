@@ -21,5 +21,10 @@ reg add "HKEY_CLASSES_ROOT\Directory\shell\MyPythonAction" /ve /d "AI工具箱" 
 reg add "HKEY_CLASSES_ROOT\Directory\shell\MyPythonAction" /v "Icon" /d "%~dp0_internal\aitool.ico" /f
 reg add "HKEY_CLASSES_ROOT\Directory\shell\MyPythonAction\command" /ve /d "\"%SCRIPT_PATH%\" \"%%1\"" /f
 
+:: 为文件夹背景（当前路径空白处）添加右键菜单
+reg add "HKEY_CLASSES_ROOT\Directory\Background\shell\MyPythonAction" /ve /d "AI工具箱" /f
+reg add "HKEY_CLASSES_ROOT\Directory\Background\shell\MyPythonAction" /v "Icon" /d "%~dp0_internal\aitool.ico" /f
+reg add "HKEY_CLASSES_ROOT\Directory\Background\shell\MyPythonAction\command" /ve /d "\"%SCRIPT_PATH%\" \"%%V\"" /f
+
 echo 右键菜单添加成功！
 pause
