@@ -115,6 +115,8 @@ class EnhancedMultiLineDialog:
             self.show_output("提示词", prompt)
             self.root.update()
             code = self.send2ai(prompt)
+            self.show_output("开始运行任务", "运行中...")
+            self.root.update()
             if self.show_middle_result.get():
                 self.show_output("代码", code)
                 self.root.update()
@@ -139,7 +141,7 @@ class EnhancedMultiLineDialog:
     def show_output(self, title, msg):
         self.output_text.tag_config("bold_red", font=("Arial", 10, "bold"), foreground="red")
         self.output_text.insert(tk.END, f"{title.center(50, '=')}\n", "bold_red")
-        self.output_text.tag_config("highlight", background="lightyellow")
+        self.output_text.tag_config("highlight", background="lightskyblue")
         self.output_text.insert(tk.END, f"{msg}\n", "highlight")
         self.output_text.see(tk.END)
         # self.output_text.config(state="disabled")
