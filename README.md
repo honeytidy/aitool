@@ -9,8 +9,8 @@
 1. 解压并提取指定类型的文件
 
    - 图片展示
-   ![解压缩演示](./assets/zip.gif)
-   - [视频展示](assets/zip.mp4)
+   ![解压缩演示](./assets/unzip.gif)
+   - [视频展示](assets/unzip.mp4)
 
 2. 合并目录里的PDF文件为一个文件
 
