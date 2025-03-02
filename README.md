@@ -4,23 +4,23 @@
 
 # 演示
 
-1. 解压并提取指定类型的文件[视频展示](assets/unzip.mp4)
+1. 解压并提取指定类型的文件【[视频](assets/unzip.mp4)】
    
    <img src="./assets/unzip.gif" alt="解压缩演示" style="width:500px;">
 
-2. 提取指定类型的文件[视频展示](assets/extract.mp4)
+2. 提取指定类型的文件【[视频](assets/extract.mp4)】
 
    <img src="./assets/extract.gif" alt="提取指定类型的文件演示" style="width:500px;">
 
-3. 合并目录里的PDF文件为一个文件[视频展示](assets/pdf.mp4)
+3. 合并目录里的PDF文件为一个文件【[视频](assets/pdf.mp4)】
 
    <img src="./assets/pdf.gif" alt="合并PDF演示" style="width:500px;">
 
-4. 批量压缩文件夹[视频展示](assets/zip.mp4)
+4. 批量压缩文件夹【[视频](assets/zip.mp4)】
 
    <img src="./assets/zip.gif" alt="批量压缩文件夹演示" style="width:500px;">
    
-5. 批量修改文件名[视频展示](assets/rename.mp4)
+5. 批量修改文件名【[视频](assets/rename.mp4)】
    
    <img src="./assets/rename.gif" alt="批量修改文件名演示" style="width:500px;">
 
@@ -38,8 +38,6 @@
 
 - API可以换成自己的（API Key等不方便放到代码上）
 - 可以加入其他语言甚至是工具的支持，比如通过Window的脚本或者调用Windows其他工具完成复杂的任务
-
-------
 
 **TODO LIST：**
 
