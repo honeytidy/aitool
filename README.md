@@ -13,7 +13,9 @@
    <img src="./assets/extract.gif" alt="解压缩演示" style="width:500px;">
    - [视频展示](assets/extract.mp4)
 3. 合并目录里的PDF文件为一个文件
-
+	- 图片展示
+   <img src="./assets/pdf.gif" alt="解压缩演示" style="width:500px;">
+   - [视频展示](assets/pdf.mp4)
 4. 批量压缩文件夹
    - 图片展示
    <img src="./assets/zip.gif" alt="批量压缩演示" style="width:500px;">
@@ -26,10 +28,14 @@
 - 解压并运行解压目录里的`setup.bat`（添加到右键菜单）
 - 输入合适的提示词即可完成相关的任务，提示词越准确成功率越高
 
+> 目前只支持Windows 11，且只在Windows 11上测试通过，其余Windows版本需要验证
 
 # 开发
 
 整个工具还比较原始和粗糙，界面效果和性能都没有做优化，功能也还有很多不完善的地方，如果您愿意可以随时贡献代码。
+
+- API可以换成自己的（API Key等不方便放到代码上）
+- 可以加入其他语言甚至是工具的支持，比如通过Window的脚本或者调用Windows其他工具完成复杂的任务
 
 ------
 
