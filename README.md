@@ -21,6 +21,7 @@
    <img src="./assets/zip.gif" alt="批量压缩文件夹演示" style="width:500px;">
    
 5. 批量修改文件名[视频展示](assets/rename.mp4)
+   
    <img src="./assets/rename.gif" alt="批量修改文件名演示" style="width:500px;">
 
 # 安装与使用
