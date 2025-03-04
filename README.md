@@ -6,23 +6,23 @@
 
 1. 解压并提取指定类型的文件【[视频](assets/unzip.mp4)】
    
-   <img src="./assets/unzip.gif" alt="解压缩演示" style="width:600px;">
+   <img src="./assets/unzip.gif" alt="解压缩演示" style="width:700px;">
 
 2. 提取指定类型的文件【[视频](assets/extract.mp4)】
 
-   <img src="./assets/extract.gif" alt="提取指定类型的文件演示" style="width:600px;">
+   <img src="./assets/extract.gif" alt="提取指定类型的文件演示" style="width:700px;">
 
 3. 合并目录里的PDF文件为一个文件【[视频](assets/pdf.mp4)】
 
-   <img src="./assets/pdf.gif" alt="合并PDF演示" style="width:600px;">
+   <img src="./assets/pdf.gif" alt="合并PDF演示" style="width:700px;">
 
 4. 批量压缩文件夹【[视频](assets/zip.mp4)】
 
-   <img src="./assets/zip.gif" alt="批量压缩文件夹演示" style="width:600px;">
+   <img src="./assets/zip.gif" alt="批量压缩文件夹演示" style="width:700px;">
    
 5. 批量修改文件名【[视频](assets/rename.mp4)】
    
-   <img src="./assets/rename.gif" alt="批量修改文件名演示" style="width:600px;">
+   <img src="./assets/rename.gif" alt="批量修改文件名演示" style="width:700px;">
 
 # 安装与使用
 
