@@ -12,7 +12,7 @@ xcopy /q "setup.bat" "dist/main"
 xcopy /q "aitool.ico" "dist/main"
 xcopy /q "build.iss" "dist/main"
 cd dist/main
-ren aitool.exe main.exe
+ren main.exe aitool.exe
 echo 打包完成！
 
 pause
