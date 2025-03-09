@@ -111,7 +111,9 @@ class EnhancedMultiLineDialog:
     def run_task(self):
         self.result = self.text_area.get("1.0", tk.END).strip()
         try:
-            prompt = f"{self.result}，代码必须要用这个真实的文件路径：{sys.argv[1]}，代码中要有中间结果的打印输出"
+            prompt = f"{self.result}，代码中要有中间结果的打印输出"
+            if len(sys.argv) > 2:
+                prompt = f"{self.result}，代码必须要用这个真实的文件路径：{sys.argv[1]}，代码中要有中间结果的打印输出"
             self.show_output("提示词", prompt)
             self.root.update()
             code = self.send2ai(prompt)
@@ -155,7 +157,7 @@ class EnhancedMultiLineDialog:
 
 # 使用示例
 if __name__ == "__main__":
-    default_text = f"解压这个文件并提取里面的jpg文件到一个目录"
+    default_text = f"在桌面创建一个文件夹，文件夹名称为：test，并生成一个txt文件，文件内容为：hello world"
     dialog = EnhancedMultiLineDialog(
         title="AI工具箱",
         default_text=default_text,
