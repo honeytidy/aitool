@@ -11,6 +11,7 @@ pyinstaller -i aitool.ico -w --add-data "aitool.ico;." --clean main.py
 xcopy /q "setup.bat" "dist/main"
 xcopy /q "aitool.ico" "dist/main"
 xcopy /q "build.iss" "dist/main"
+move dist/main/main.exe dist/main/aitool.exe
 echo 打包完成！
 
 pause
