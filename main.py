@@ -157,7 +157,7 @@ class EnhancedMultiLineDialog:
 
 # 使用示例
 if __name__ == "__main__":
-    default_text = f"在桌面创建一个文件夹，文件夹名称为：test，并生成一个txt文件，文件内容为：hello world"
+    default_text = f"在D盘创建一个文件夹，文件夹名称为：test，并生成一个txt文件，文件内容为：hello world，完成后用文件浏览器打开D盘"
     dialog = EnhancedMultiLineDialog(
         title="AI工具箱",
         default_text=default_text,
