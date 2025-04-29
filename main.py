@@ -139,6 +139,9 @@ class EnhancedMultiLineDialog:
         self.root.quit()
 
     def run(self):
+        # 置顶窗口
+        # self.root.lift()
+        self.root.attributes("-topmost", True)
         self.root.mainloop()
 
     def show_output(self, title, msg):
@@ -158,6 +161,12 @@ class EnhancedMultiLineDialog:
 
 # 使用示例
 if __name__ == "__main__":
+    # close_splash.py
+    try:
+        import pyi_splash
+        pyi_splash.close()
+    except ImportError:
+        pass
     default_text = f"在D盘创建一个文件夹，文件夹名称为：test，并生成一个txt文件，文件内容为：hello world，完成后用文件浏览器打开D盘"
     dialog = EnhancedMultiLineDialog(
         title="AI工具箱",

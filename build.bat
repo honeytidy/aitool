@@ -7,7 +7,7 @@ if exist dist rd /s /q dist
 if exist main.spec del /q main.spec
 
 :: 调用 PyInstaller
-pyinstaller -i aitool.ico -w --add-data "aitool.ico;." --clean main.py
+pyinstaller -i aitool.ico -w --splash splash.png --add-data "aitool.ico;." --add-data "splash.png;." --clean main.py
 xcopy /q "setup.bat" "dist/main"
 xcopy /q "aitool.ico" "dist/main"
 xcopy /q "build.iss" "dist/main"
