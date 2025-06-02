@@ -52,7 +52,7 @@ class EnhancedMultiLineDialog:
         # 取消按钮
         self.cancel_button = ttk.Button(
             button_frame,
-            text="取消",
+            text="取消(Esc)",
             command=self.cancel
         )
         self.cancel_button.pack(side=tk.LEFT, padx=5)
@@ -68,7 +68,7 @@ class EnhancedMultiLineDialog:
         # 确定按钮
         self.ok_button = ttk.Button(
             button_frame,
-            text="运行",
+            text="运行(Ctrl+Enter)",
             command=self.start_task
         )
         self.ok_button.pack(side=tk.LEFT, padx=5)
@@ -103,6 +103,7 @@ class EnhancedMultiLineDialog:
         # 绑定快捷键
         self.root.bind('<Control-Return>', lambda e: self.start_task())
         self.root.bind('<Escape>', lambda e: self.cancel())
+        self.text_area.bind('<Control-Return>', lambda e: (self.start_task() or "break"))
         
     def start_task(self):
         self.progress.start(10)
