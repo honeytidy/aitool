@@ -9,20 +9,20 @@ import requests
 import traceback
 import PyPDF2
 import moviepy
+from tkinter import font
+from ctypes import windll
+windll.shcore.SetProcessDpiAwareness(1)
 
 
 class EnhancedMultiLineDialog:
     def __init__(self, title="多行文本输入", default_text="", prompt="请输入内容："):
         self.root = tk.Tk()
         self.root.title(title)
-        style = ttk.Style(self.root)
-        style.theme_use('winnative')
-
-        # 设置窗口大小和位置
-        window_width = 500
-        window_height = 400
+        
         screen_width = self.root.winfo_screenwidth()
         screen_height = self.root.winfo_screenheight()
+        window_width  = int(screen_width  * 0.60)   # 60 %
+        window_height = int(screen_height * 0.70)   # 70 %
         x = (screen_width - window_width) // 2
         y = (screen_height - window_height) // 2
         self.root.geometry(f"{window_width}x{window_height}+{x}+{y}")
@@ -37,11 +37,9 @@ class EnhancedMultiLineDialog:
             wrap=tk.WORD,
             width=50,
             height=5,
-            font=('Arial', 10)
+            font=('Microsoft YaHei UI', 9)
         )
         self.text_area.pack(padx=10, pady=3, expand=True, fill='both')
-
-        # 设置默认文本
         if default_text:
             self.text_area.insert("1.0", default_text)
 
@@ -96,7 +94,7 @@ class EnhancedMultiLineDialog:
             wrap=tk.WORD,
             width=50,
             height=20,
-            font=('Arial', 10)
+            font=('Microsoft YaHei UI', 9)
         )
         self.output_text.pack(padx=10, pady=1, expand=True, fill='both')
 
@@ -146,7 +144,7 @@ class EnhancedMultiLineDialog:
         self.root.mainloop()
 
     def show_output(self, title, msg):
-        self.output_text.tag_config("bold_red", font=("Arial", 10, "bold"), foreground="red")
+        self.output_text.tag_config("bold_red", foreground="red")
         self.output_text.insert(tk.END, f"{title.center(50, '=')}\n", "bold_red")
         self.output_text.tag_config("highlight", background="white")
         self.output_text.insert(tk.END, f"{msg}\n")
