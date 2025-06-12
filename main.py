@@ -10,9 +10,12 @@ import traceback
 import PyPDF2
 import moviepy
 from tkinter import font
+import pystray
+from PIL import Image, ImageDraw
+from pystray import MenuItem as item
 from ctypes import windll
+import os
 windll.shcore.SetProcessDpiAwareness(1)
-
 
 class EnhancedMultiLineDialog:
     def __init__(self, title="多行文本输入", default_text="", prompt="请输入内容："):
@@ -103,6 +106,54 @@ class EnhancedMultiLineDialog:
         self.root.bind('<Escape>', lambda e: self.cancel())
         self.text_area.bind('<Control-Return>', lambda e: (self.start_task() or "break"))
         
+        # 初始化托盘功能
+        self.setup_tray()
+        
+    def setup_tray(self):
+        """设置系统托盘"""
+        # 创建托盘图标
+        def resource_path(rel_path: str) -> str:
+            """兼容 PyInstaller — 返回打包后资源的真实路径"""
+            if hasattr(sys, '_MEIPASS'):
+                return os.path.join(sys._MEIPASS, rel_path)
+            return os.path.join(os.path.abspath("."), rel_path)
+        image = Image.open(resource_path("aitool.ico"))
+
+        
+        # 创建托盘菜单
+        menu = (
+            item('显示窗口', self.show_window, default=True),
+            item('退出', self.quit_app)
+        )
+        
+        self.tray_icon = pystray.Icon("AI工具箱", image, menu=menu)
+        
+        # 绑定窗口关闭事件到最小化到托盘
+        self.root.protocol("WM_DELETE_WINDOW", self.hide_window)
+        
+    def show_window(self, icon=None, item=None):
+        """显示窗口"""
+        self.root.after(0, self._show_window)
+        
+    def _show_window(self):
+        """在主线程中显示窗口"""
+        self.root.deiconify()
+        self.root.lift()
+        self.root.attributes("-topmost", True)
+        self.root.after_idle(lambda: self.root.attributes("-topmost", False))
+        
+    def hide_window(self, icon=None, item=None):
+        """隐藏窗口到托盘"""
+        self.root.withdraw()
+        if not hasattr(self, '_tray_started'):
+            self._tray_started = True
+            threading.Thread(target=self.tray_icon.run, daemon=True).start()
+            
+    def quit_app(self, icon=None, item=None):
+        """退出应用"""
+        self.tray_icon.stop()
+        self.root.quit()
+        
     def start_task(self):
         self.progress.start(10)
         self.ok_button.config(state=tk.DISABLED, text="运行中...")
@@ -130,7 +181,7 @@ class EnhancedMultiLineDialog:
         except Exception as e:
             print("错误：", e)
             self.show_output("执行失败", f"{e}\n{traceback.format_exc()}")
-        self.ok_button.config(state=tk.NORMAL, text="运行")
+        self.ok_button.config(state=tk.NORMAL, text="运行(Ctrl+Enter)")
         self.progress.stop()
 
     def cancel(self):
